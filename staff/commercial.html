@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Commercial | PromptlyPi Staff</title>
+    <style>
+        :root { --primary: #7366ff; --bg-body: #f5f6fa; --card-bg: #ffffff; --text-dark: #2b2b2b; --text-muted: #898989; --border-color: #f1f3f9; --radius-lg: 15px; }
+        body { font-family: sans-serif; background: var(--bg-body); margin: 0; padding: 20px; color: var(--text-dark); }
+        .header { display: flex; justify-content: space-between; margin-bottom: 20px; }
+        .card { background: var(--card-bg); padding: 20px; border-radius: var(--radius-lg); box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th, td { padding: 10px; border-bottom: 1px solid var(--border-color); }
+        button { background: #51bb25; color: white; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;}
+        .reject { background: #f73164; }
+        .btn-action { background: var(--primary); }
+        input, textarea { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid var(--border-color); border-radius: 8px; font-family: inherit; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>💰 Commercial Department</h2>
+        <button id="logoutBtn" style="background: transparent; border: none; color: black; cursor: pointer;">Log Out</button>
+    </div>
+
+    <!-- NEW: Direct User Notification Card -->
+    <div class="card">
+        <h3>✉️ Send Message to User</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">Contact a user regarding their payment or redemption status.</p>
+        <input type="text" id="notify-target-uid" placeholder="Enter User ID">
+        <textarea id="notify-message" rows="2" placeholder="Message details..."></textarea>
+        <button class="btn-action" onclick="sendCommercialNotification()">Send Notification</button>
+    </div>
+
+    <div class="card">
+        <h3>Pending Redemptions (Gift Cards)</h3>
+        <table>
+            <thead><tr><th>User ID</th><th>Reward</th><th>Cost</th><th>Action</th></tr></thead>
+            <tbody id="redemptions-body"><tr><td colspan="4">Loading...</td></tr></tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h3>Pending Withdrawals (Cash)</h3>
+        <table>
+            <thead><tr><th>User Email</th><th>Amount</th><th>Details</th><th>Action</th></tr></thead>
+            <tbody id="withdrawals-body"><tr><td colspan="4">Loading...</td></tr></tbody>
+        </table>
+    </div>
+
+    <script type="module" src="commercial.js"></script>
+</body>
+</html>
